@@ -22,3 +22,7 @@
     }
   }
 }
+
+.add-product {
+  @include main-style();
+}

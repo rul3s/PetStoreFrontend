@@ -31,7 +31,7 @@ const Products: React.FC = (props: Props) => {
     <div className="products">
       <h1>Products List</h1>
       {products.length === 0 ? (
-        <h1>No producs</h1>
+        <h1>No products</h1>
       ) : (
         <div className="table-wrapper">
           <table>

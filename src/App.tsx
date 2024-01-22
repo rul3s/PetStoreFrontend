@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home.page";
 import Products from "./pages/products/Products.page";
+import AddProduct from "./pages/products/AddProduct.page";
 
 const App: React.FC = () => {
   return (
@@ -15,9 +16,9 @@ const App: React.FC = () => {
         {/* Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />}>
-            <Route index />
-            {/* <Route path="" element /> */}
+          <Route path="/products">
+            <Route index element={<Products />} />
+            <Route path="add" element={<AddProduct />} />
           </Route>
         </Routes>
       </div>
