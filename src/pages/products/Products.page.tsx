@@ -6,16 +6,28 @@ import { productsUrl } from "../../constants/url.constant";
 import { Button } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
 import moment from "moment";
+import { useNavigate, useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 
 interface Props {}
 
 const Products: React.FC = (props: Props) => {
   const [products, setProducts] = useState<IProduct[]>([]);
+  const location = useLocation();
+  const redirect = useNavigate();
 
   const fetchProductList = async () => {
     try {
       const response = await axios.get<IProduct[]>(productsUrl);
       setProducts(response.data);
+      if (location?.state) {
+        Swal.fire({
+          icon: "success",
+          title: "Produc added succesfully",
+          text: location?.state?.message,
+        });
+        redirect(location.pathname, { replace: true });
+      }
     } catch (error) {
       alert("An Error Happened");
     }

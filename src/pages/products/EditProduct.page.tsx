@@ -8,7 +8,7 @@ import { baseUrl, productsUrl } from "../../constants/url.constant";
 
 interface Props {}
 
-const AddProduct: React.FC = (props: Props) => {
+const EditProduct: React.FC = (props: Props) => {
   const [product, setProduct] = React.useState<Partial<IProduct>>({
     title: "",
     brand: "",
@@ -78,4 +78,4 @@ const AddProduct: React.FC = (props: Props) => {
   );
 };
 
-export default AddProduct;
+export default EditProduct;
